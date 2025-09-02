@@ -1,3 +1,12 @@
+:root{
+    --bc-maroon: #69013b;   /* viininpunainen */
+    --bc-beige:  #fce0d1;   /* beige */
+    --bc-white:  #ffffff;   /* valkoinen */
+    --bc-black:  #191919;   /* musta */
+    --muted:     rgba(25,25,25,0.08);
+}
+
+/* base reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,21 +15,24 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* subtle two-tone background using maroon and black */
+    background: linear-gradient(135deg, var(--bc-maroon) 0%, var(--bc-black) 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #333;
+    color: var(--bc-black);
 }
 
+/* container uses beige to contrast the dark page background */
 .game-container {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--bc-beige);
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    max-width: 1000px;
     width: 100%;
+    color: var(--bc-black);
 }
 
 .game-header {
@@ -31,9 +43,9 @@ body {
 .game-header h1 {
     font-size: 3rem;
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--bc-maroon);
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.25);
 }
 
 .score-board {
@@ -44,20 +56,21 @@ body {
     margin: 0 auto;
 }
 
+/* Score items now use maroon and white for strong contrast */
 .score-item {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: linear-gradient(135deg, var(--bc-maroon) 0%, var(--bc-white) 100%);
     padding: 15px;
     border-radius: 10px;
     text-align: center;
-    color: white;
+    color: var(--bc-black);
     font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
 .score-item .label {
     display: block;
     font-size: 0.9rem;
-    opacity: 0.9;
+    opacity: 0.95;
     margin-bottom: 5px;
 }
 
@@ -77,11 +90,16 @@ body {
     position: relative;
 }
 
+/* Canvas framed with black and light background for pieces to pop */
 #gameCanvas {
-    border: 3px solid #2c3e50;
+    border: 3px solid var(--bc-black);
     border-radius: 10px;
-    background: #ecf0f1;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background: var(--bc-white);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    display: block;
+    max-height: 800px;   /* keep the canvas within 800px height */
+    width: auto;
+    height: auto;
 }
 
 .game-overlay {
@@ -90,7 +108,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(25, 25, 25, 0.85);
     display: none;
     justify-content: center;
     align-items: center;
@@ -103,20 +121,21 @@ body {
 
 .overlay-content {
     text-align: center;
-    color: white;
+    color: var(--bc-white);
 }
 
 .overlay-content h2 {
     font-size: 2rem;
     margin-bottom: 10px;
-    color: #e74c3c;
+    color: var(--bc-beige);
 }
 
 .overlay-content p {
     font-size: 1.1rem;
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
+/* Sidebar uses subtle white/beige contrasts */
 .game-sidebar {
     display: flex;
     flex-direction: column;
@@ -125,35 +144,36 @@ body {
 }
 
 .next-piece {
-    background: #f8f9fa;
+    background: var(--bc-white);
     padding: 20px;
     border-radius: 15px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
 }
 
 .next-piece h3 {
     margin-bottom: 15px;
-    color: #2c3e50;
+    color: var(--bc-maroon);
     font-size: 1.2rem;
 }
 
 #nextCanvas {
-    border: 2px solid #bdc3c7;
+    border: 2px solid var(--muted);
     border-radius: 8px;
-    background: white;
+    background: var(--bc-white);
 }
 
+/* Controls area uses white with maroon headings */
 .controls {
-    background: #f8f9fa;
+    background: var(--bc-white);
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
 }
 
 .controls h3 {
     margin-bottom: 15px;
-    color: #2c3e50;
+    color: var(--bc-maroon);
     font-size: 1.2rem;
     text-align: center;
 }
@@ -164,7 +184,7 @@ body {
     align-items: center;
     margin-bottom: 10px;
     padding: 8px 0;
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 1px solid rgba(25,25,25,0.06);
 }
 
 .control-item:last-child {
@@ -173,8 +193,8 @@ body {
 }
 
 .key {
-    background: #2c3e50;
-    color: white;
+    background: var(--bc-black);
+    color: var(--bc-white);
     padding: 4px 8px;
     border-radius: 4px;
     font-size: 0.8rem;
@@ -185,7 +205,7 @@ body {
 
 .action {
     font-size: 0.9rem;
-    color: #495057;
+    color: var(--bc-black);
 }
 
 .game-footer {
@@ -203,30 +223,29 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     min-width: 120px;
+    color: var(--bc-white);
 }
 
+/* Start button: maroon primary */
 #startBtn {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--bc-maroon) 0%, rgba(105,1,59,0.85) 100%);
 }
 
-#startBtn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(79, 172, 254, 0.3);
-}
-
+/* Pause button: reversed - beige with maroon text accent */
 #pauseBtn {
-    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--bc-beige) 0%, rgba(252,224,209,0.9) 100%);
+    color: var(--bc-black);
+    border: 2px solid rgba(25,25,25,0.04);
 }
 
+#startBtn:hover,
 #pauseBtn:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(250, 112, 154, 0.3);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
 }
 
 #pauseBtn:disabled {
-    opacity: 0.5;
+    opacity: 0.6;
     cursor: not-allowed;
     transform: none;
 }
