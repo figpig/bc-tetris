@@ -2,6 +2,14 @@
 
 A classic Tetris game built with HTML5 Canvas and JavaScript, featuring modern UI design and session-based high score tracking.
 
+**Käynnistä peli selaimessasi seuraavasti:**
+
+Avaa tämä projektikansio VS:ssä.
+Varmista, että Live Server -laajennus on asennettu.
+Napsauta hiiren kakkospainikkeella tiedostoselaimessa index.html-tiedostoa ja valitse Avaa Live Serverillä.
+Selain avautuu ja voit pelata peliä suorana.
+Kaikki koodiin tekemäsi muutokset latautuvat automaattisesti uudelleen selaimeen!
+
 ## Features
 
 - **Classic Tetris Gameplay**: All 7 standard Tetris pieces (I, O, T, S, Z, J, L)
