@@ -1,4 +1,4 @@
-# Tetris Game
+# Tetris  Game
 
 A classic Tetris game built with HTML5 Canvas and JavaScript, featuring modern UI design and session-based high score tracking.
 
